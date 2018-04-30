@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   model = {};
   isCollapsed = false;
   loggedIn = false;
-  user = localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')).userName: '';
+  //user = localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')).userName: '';
   alertPlaying = false;
   alert = {};
   constructor(private authService: AuthService) { }
@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
   
 
   login() {
-    this.authService.login(this.model).subscribe(data => this.playAlert(0), error => this.playAlert(error.status), () => this.user = JSON.parse(localStorage.getItem('user')).userName);
+      this.authService.login(this.model).subscribe(data => console.log(data), error => console.log(error));
   }
 
   playAlert(errorStatus) {

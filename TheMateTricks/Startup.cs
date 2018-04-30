@@ -43,11 +43,11 @@ namespace TheMateTricks
              });
             services.AddMvc();
             services.AddCors();
-             services.AddTransient<SeedDB>();
+             //services.AddTransient<SeedDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedDB seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env /*,SeedDB seeder*/)
         {
             if (env.IsDevelopment())
             {
@@ -65,7 +65,7 @@ namespace TheMateTricks
                 .AllowCredentials());
             app.UseAuthentication();
             app.UseMvc();
-          seeder.SeedUsers();
+          //seeder.SeedUsers();
         }
     }
 }

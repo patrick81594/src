@@ -36,7 +36,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:57629','localhost:57630']
+          whitelistedDomains: ['localhost:57629','localhost:57630']
       }
     }),
     BsDropdownModule.forRoot(),

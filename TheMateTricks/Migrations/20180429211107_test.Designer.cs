@@ -11,8 +11,8 @@ using TheMateTricks.Data;
 namespace TheMateTricks.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180425051025_Seed")]
-    partial class Seed
+    [Migration("20180429211107_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace TheMateTricks.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Photo");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("TheMateTricks.Models.User", b =>
@@ -81,7 +81,7 @@ namespace TheMateTricks.Migrations
             modelBuilder.Entity("TheMateTricks.Models.Photo", b =>
                 {
                     b.HasOne("TheMateTricks.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Photos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

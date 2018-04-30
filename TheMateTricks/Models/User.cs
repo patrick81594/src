@@ -25,7 +25,7 @@ namespace TheMateTricks.Models
         public string City { get; set; }
 
 
-        private ICollection<Photo> Photos { get; set; }
+        public ICollection<Photo> Photos { get; set; }
 
         public User()
         {

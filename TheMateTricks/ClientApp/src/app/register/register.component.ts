@@ -33,19 +33,19 @@ export class RegisterComponent implements OnInit {
     return this.model.password == this.passwordCon.password;
   }
 
-  getErrors(error) {
-    if (error.Password != null) {
-      this.errors.push(error.Password["0"]);
-    }
-    if (error.UserName != null) {
-      this.errors.push(error.UserName["0"]);
-    }
-  }
+  //getErrors(error) {
+  //  if (error.Password != null) {
+  //    this.errors.push(error.Password["0"]);
+  //  }
+  //  if (error.UserName != null) {
+  //    this.errors.push(error.UserName["0"]);
+  //  }
+  //}
   
 
   register() {
     if (this.checkPassword()) {
-      this.authService.register(this.model).subscribe(data => this.success = true, error => this.getErrors(error.error));
+        this.authService.Register(this.model).subscribe(data => this.success = true, error => console.log(error));
     }
   }
 }

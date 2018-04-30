@@ -14,6 +14,6 @@ namespace TheMateTricks.Data
 
         public DbSet<User> Users { get; set; }
 
-        private DbSet<Photo> Photo { get; set; }
+        public DbSet<Photo> Photos { get; set; }
     }
 }
