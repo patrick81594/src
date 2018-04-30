@@ -31,7 +31,7 @@ export class NavComponent implements OnInit {
     if (errorStatus == 401) {
       this.alert = {
         type: 'danger',
-        msg: 'Invalid userName and/or password',
+        msg: 'Invalid userName and/or password', //test
         timeout: 2000
       };
     } else if (errorStatus == 0) {
