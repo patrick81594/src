@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
 
 namespace TheMateTricks
 {
@@ -30,6 +31,9 @@ namespace TheMateTricks
         {
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<AutoMapperProfiles>();
+  
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection(key: "TokenSettings:JWTKey").Value);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
              .AddJwtBearer(options => {
@@ -41,9 +45,14 @@ namespace TheMateTricks
                      ValidateAudience = false
                  };
              });
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(opt => {
+                opt.SerializerSettings.ReferenceLoopHandling =
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddCors();
-             //services.AddTransient<SeedDB>();
+            services.AddAutoMapper();
+
+            //services.AddTransient<SeedDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,9 +60,11 @@ namespace TheMateTricks
         {
             if (env.IsDevelopment())
             {
+                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
-
+           
+            
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
@@ -65,7 +76,9 @@ namespace TheMateTricks
                 .AllowCredentials());
             app.UseAuthentication();
             app.UseMvc();
-          //seeder.SeedUsers();
+
+            //seeder.SeedUsers();
         }
+
     }
 }

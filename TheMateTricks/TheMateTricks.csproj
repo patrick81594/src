@@ -15,15 +15,20 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\PhotosDTO.ts" />
     <None Remove="ClientApp\src\app\models\UserDTO.ts" />
+    <None Remove="ClientApp\src\app\services\user.service.ts" />
     <None Remove="Properties\PublishProfiles\TheMateTricks20180424063933 - Web Deploy.pubxml" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\member\" />
     <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
@@ -36,6 +41,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\PhotosDTO.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\UserDTO.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\user.service.ts" />
   </ItemGroup>
 
 </Project>
