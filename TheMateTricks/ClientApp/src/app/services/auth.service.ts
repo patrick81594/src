@@ -13,7 +13,7 @@ export class AuthService {
     constructor(private http: HttpClient, private JwtHelperService: JwtHelperService) { }
 
     login(user) {
-        return this.http.post<AuthUser>(this.baseUrl + '/auth/login', user)
+      return this.http.post<AuthUser>(/*.baseUrl +*/ 'http://localhost:57629/api/auth/login', user)
             .map((result: AuthUser) => {
                 if (result) {
                     localStorage.setItem('token', result.tokenString);
@@ -22,10 +22,11 @@ export class AuthService {
                 }
                 return result;
             });
+
     }
 
     Register(model) {
-        return this.http.post<AuthUser>(this.baseUrl + '/auth/register', model);
+      return this.http.post<AuthUser>(/*.baseUrl +*/ 'http://localhost:57629/api/auth/register', model);
     }
 
     isExpired() {
@@ -34,7 +35,7 @@ export class AuthService {
 
     logOut() {
         localStorage.removeItem('token');
-        localStorage.removeItem('User');
+        localStorage.removeItem('user');
         console.log("Logout Successful");
 
     }

@@ -10,6 +10,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   RetrieveUsers() {
-    return this.http.get<Array<UserDTO>>(this.baseUrl + '/users');
+    return this.http.get<Array<UserDTO>>(/*this.baseUrl +*/ 'http://localhost:57629/api/users');
   }
 }

@@ -18,6 +18,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MemberListComponent } from './member/member-list/member-list.component';
 import { MemberCardComponent } from './member/member-card/member-card.component';
+import { FriendsListComponent } from './friends/friends-list/friends-list.component';
+import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -30,7 +32,9 @@ export function tokenGetter() {
     HomeComponent,
     RegisterComponent,
     MemberListComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    FriendsListComponent,
+    MessagesListComponent
   ],
   imports: [
     BrowserModule,

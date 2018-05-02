@@ -15,6 +15,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\PhotosDTO.ts" />
     <None Remove="ClientApp\src\app\models\UserDTO.ts" />
+    <None Remove="ClientApp\src\app\services\user.service.spec.ts" />
     <None Remove="ClientApp\src\app\services\user.service.ts" />
     <None Remove="Properties\PublishProfiles\TheMateTricks20180424063933 - Web Deploy.pubxml" />
   </ItemGroup>

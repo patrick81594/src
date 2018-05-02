@@ -8,7 +8,7 @@ import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  model = { username: '', password: '' };
+  model = { username: '', password: '' ,gender:'',name:'',birthdate:'',city:''};
   passwordCon = { password: '' };
   errors: string[] = [];
   success = false;
