@@ -24,6 +24,8 @@ namespace TheMateTricks.Data
             }).ForMember(dest => dest.Age, opt => {
                 opt.ResolveUsing(d => d.BirthDate.CalculateAge());
             });
+            CreateMap<RegisterUserDTO, User>();
+            CreateMap<User, RegisterUserDTO>();
             CreateMap<Photo, PhotosDTO>();
         }
     }
