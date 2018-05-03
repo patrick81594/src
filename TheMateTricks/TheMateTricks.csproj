@@ -5,20 +5,7 @@
     <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20180424211759_InitialDB.cs" />
-    <Compile Remove="Migrations\20180424211759_InitialDB.Designer.cs" />
-    <Compile Remove="Migrations\20180425040508_Edit.cs" />
-    <Compile Remove="Migrations\20180425040508_Edit.Designer.cs" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="ClientApp\src\app\models\PhotosDTO.ts" />
-    <None Remove="ClientApp\src\app\models\UserDTO.ts" />
-    <None Remove="ClientApp\src\app\services\user.service.spec.ts" />
-    <None Remove="ClientApp\src\app\services\user.service.ts" />
-    <None Remove="Properties\PublishProfiles\TheMateTricks20180424063933 - Web Deploy.pubxml" />
-  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\member\" />

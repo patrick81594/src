@@ -23,7 +23,8 @@ export class NavComponent implements OnInit {
   
 
   login() {
-      this.authService.login(this.model).subscribe(data => console.log(data), error => console.log(error));
+    console.log(this.model);
+    this.authService.login(this.model).subscribe(data => console.log(data), error => console.log(error));
   }
 
   playAlert(errorStatus) {

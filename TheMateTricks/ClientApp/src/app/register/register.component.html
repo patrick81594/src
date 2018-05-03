@@ -1,13 +1,45 @@
 <form #loginForm="ngForm" (ngSubmit)="register()" class="form-signin mt-5">
   <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
   <label for="username" class="sr-only">UserName</label>
-  <input type="text" id="username" class="form-control mt-3" placeholder="UserName" name="username" [(ngModel)]="model.username" required>
+  <input type="text" id="username" class="form-control mt-3" placeholder="Username" name="username" [(ngModel)]="model.username" required>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" name="password" [(ngModel)]="model.password" required>
   <label for="inputPasswordCon" class="sr-only">Confirm Password</label>
   <input type="password" id="inputPasswordCon" class="form-control mt-3 mb-3" placeholder="Confirm Password" name="passwordCon" [(ngModel)]="passwordCon.password">
   <alert *ngIf="!checkPassword()" [type]="passwordConAlert.type" [dismissOnTimeout]="passwordConAlert.timeout">{{ passwordConAlert.msg }}</alert>
   <alert *ngFor="let error of errors" [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ error }}</alert>
+  <fieldset class="form-group">
+    <h5 class="form-check-inline">Gender:</h5>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" name="gender" id="optionsRadios1" [(ngModel)]="model.gender" value="male" required>
+      <label class="form-check-label form-check-inline">
+        Male
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" [(ngModel)]="model.gender" value="female">
+      <label class="form-check-label ">
+        Female
+      </label>
+    </div>
+  </fieldset>
+  <label for="name" class="sr-only">Name</label>
+  <input type="text" id="name" class="form-control mt-3" placeholder="Name" name="name" [(ngModel)]="model.name" required>
+  <div class="content">
+
+    <input type="text"
+           class="form-control mt-3"
+           placeholder="BirthDate"
+           name="BirthDate"
+           #dp="bsDatepicker"
+           showWeekNumbers="false"
+           bsDatepicker [(ngModel)]="model.birthdate">
+
+
+  </div>
+  <label for="city" class="sr-only">City</label>
+  <input type="text" id="city" class="form-control mt-3" placeholder="City" name="city" [(ngModel)]="model.city" required>
+
   <div class="text-center mt-3 mb-3">
     <button class="btn btn btn-primary" type="submit">Register</button>
     <button routerLink="/home" class="btn btn-default">Cancel</button>

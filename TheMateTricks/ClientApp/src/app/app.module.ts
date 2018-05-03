@@ -20,6 +20,15 @@ import { MemberListComponent } from './member/member-list/member-list.component'
 import { MemberCardComponent } from './member/member-card/member-card.component';
 import { FriendsListComponent } from './friends/friends-list/friends-list.component';
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { MemberDetailsComponent } from './member/member-details/member-details.component';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+//import { MemberEditComponent } from './member/member-edit/member-edit.component';
+import { MomentModule } from 'ngx-moment';
+//import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+//import { FileUploadModule } from 'ng2-file-upload'; 
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -34,9 +43,12 @@ export function tokenGetter() {
     MemberListComponent,
     MemberCardComponent,
     FriendsListComponent,
-    MessagesListComponent
+    MessagesListComponent,
+    MemberDetailsComponent,
+    TimeAgoPipe,
   ],
   imports: [
+    TabsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -49,7 +61,12 @@ export function tokenGetter() {
       }
     }),
     BsDropdownModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot(),
+        TabsModule.forRoot(),
+    CarouselModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [AuthService, , UserService],
   bootstrap: [AppComponent]

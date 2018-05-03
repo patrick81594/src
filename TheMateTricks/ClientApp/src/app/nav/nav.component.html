@@ -20,12 +20,12 @@
       </li>
     </ul>
     <div *ngIf="!alertPlaying; else alertPlayer">
-      <form *ngIf="!checkLogin()" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
+      <form *ngIf="checkLogin()" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
         <input required class="form-control mr-sm-2" type="text" placeholder="UserName" aria-label="UserName" name="username" [(ngModel)]="model.userName">
         <input required class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password" [(ngModel)]="model.password">
         <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
       </form>
-      <div *ngIf="checkLogin()" class="btn-group mr-3" dropdown>
+      <div *ngIf="!checkLogin()" class="btn-group mr-3" dropdown>
         <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
           Welcome {{user}}
         </button>

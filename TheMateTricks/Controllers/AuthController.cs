@@ -57,7 +57,7 @@ namespace TheMateTricks.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO user)
         {
-            var storedUser = await _repo.Login(user.UserName, user.Password);
+            var storedUser = await _repo.Login(user.userName, user.Password);
             if (storedUser == null)
             {
                 return Unauthorized();

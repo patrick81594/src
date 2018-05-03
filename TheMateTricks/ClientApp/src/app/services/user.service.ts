@@ -12,4 +12,11 @@ export class UserService {
   RetrieveUsers() {
     return this.http.get<Array<UserDTO>>(/*this.baseUrl +*/ 'http://localhost:57629/api/users');
   }
+  RetrieveUser(id) {
+  
+    return this.http.get<UserDTO>(/*this.baseUrl +*/ 'http://localhost:57629/api/auth/users/'+ id);
+  }
+  updateUser(id, updateUser) {
+    return this.http.put('http://localhost:57629/api/users/updateuser/' + id, updateUser);
+  }
 }
