@@ -27,6 +27,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 //import { MemberEditComponent } from './member/member-edit/member-edit.component';
 import { MomentModule } from 'ngx-moment';
+import { EditMemComponent } from './member/edit-mem/edit-mem.component';
+
+
 //import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 //import { FileUploadModule } from 'ng2-file-upload'; 
 
@@ -46,6 +49,9 @@ export function tokenGetter() {
     MessagesListComponent,
     MemberDetailsComponent,
     TimeAgoPipe,
+    EditMemComponent,
+    //MemberEditComponent
+   
   ],
   imports: [
     TabsModule.forRoot(),

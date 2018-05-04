@@ -1,7 +1,9 @@
-<div class="card mb-3" width="250">
-  <img class="card-img-top" src="{{member.photoUrl}}" height="140" width="140" />
+<div class="card mb-3" width="250" routerLink="/members/{{member.id}}">
+  <img *ngIf= "member.photoUrl != null" class="card-img-top" src="{{member.photoUrl}}" style="height:140px;width:140px;" />
+  <img *ngIf="member.photoUrl ==null" class="card-img-top" src="../../../assets/default.jpg" style="height:140px;width:140px;"/>
   <div class="card-body">
-    <h1 class="card-title"><strong>{{member.name}}</strong></h1>
-    <p class="card-text">{{member.city}}, {{member.age}}</p>
+    <div class="card-title"><strong>{{member.name}}, {{member.age}}</strong></div>
+    <p class="card-text">{{member.city}}</p>
+
   </div>
 </div>

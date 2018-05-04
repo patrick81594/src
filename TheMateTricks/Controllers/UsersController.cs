@@ -49,6 +49,16 @@ namespace TheMateTricks.Controllers
             var userBriefDetails = _mapper.Map<IEnumerable<UserBriefDTO>>(Users);
             return userBriefDetails;
         }
+        [HttpPut("/api/users/updateuser/{id}")]
+        
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] editUserDTO updatedUser)
+        {
+            var user = await _repo.GetUser(id);
+            user = _mapper.Map(updatedUser, user);
+            await _repo.SaveAll();
+            return NoContent();
+
+        }
 
     }
 }

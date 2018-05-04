@@ -13,7 +13,7 @@ export class MemberDetailsComponent implements OnInit {
 
   constructor(private UserService: UserService, private activatedRoute: ActivatedRoute, private auth: AuthService, private router: Router) { }
   member = {}
-  id = null;
+  id = -1;
   loggedIn = false;
   ngOnInit() {
     if (!this.auth.isExpired()) {

@@ -19,8 +19,9 @@ export class AuthService {
       .map((result: AuthUser) => {
         if (result) {
           localStorage.setItem('token', result.tokenString);
-          localStorage.setItem('user', JSON.stringify(result.user));
-          console.log('token');
+          localStorage.setItem("user", JSON.stringify(result));
+          console.log(localStorage.getItem("token"));
+          console.log(localStorage.getItem("user"));
         }
         return result;
       });
@@ -36,8 +37,8 @@ export class AuthService {
     }
 
     logOut() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         console.log("Logout Successful");
 
     }

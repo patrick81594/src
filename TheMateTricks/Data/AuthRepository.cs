@@ -22,7 +22,9 @@ namespace TheMateTricks.Data
         public async Task<User> Login(string userName, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
-
+            user.LastActive = DateTime.Now;
+             _context.Users.Update(user);
+            await _context.SaveChangesAsync();
             return (user == null || !PasswordHashVerified(password, user.PasswordHash, user.PasswordSalt)) ? null : user;
         }
 

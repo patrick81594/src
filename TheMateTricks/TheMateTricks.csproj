@@ -8,7 +8,6 @@
 
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\member\" />
     <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>

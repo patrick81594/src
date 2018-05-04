@@ -11,14 +11,25 @@ import { UserDTO } from '../../models/UserDTO';
 export class MemberListComponent implements OnInit {
 
   constructor(private UserService: UserService, private auth: AuthService, private router: Router) { }
+
   users = [];
+  curUser: any = {};
+  loggedIn = false;
 
   ngOnInit() {
-    
-    this.getUsers;
-    console.log(this.users);
+    if (!this.auth.isExpired()) {
+      this.loggedIn = true;
+      this.curUser = JSON.parse(localStorage.getItem('user'));
+      this.getUsers();
+    } else {
+      this.loggedIn = false;
+      setTimeout(() => {
+        this.router.navigate(['/home']);
 
+      }, 5000);
+    }
   }
+
   getUsers() {
     this.UserService.RetrieveUsers().subscribe(p => this.users = p, err => console.log(err), () => console.log(this.users));
     console.log(this.users);
