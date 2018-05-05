@@ -1,8 +1,8 @@
 <div *ngIf="loggedIn" class="container">
-  <h1 class="text.left"><strong>Members!</strong></h1>
+  <h1 class=""><strong>Members!</strong></h1>
 
   <div *ngIf="users"class="row md-3">
-    <div *ngFor="let user of users" class="card-deck">
+    <div *ngFor="let user of users" class="card-deck px-2 py-2">
       <app-member-card [member]="user"></app-member-card>
     </div>
   </div>

@@ -7,17 +7,17 @@ import { UserDTO } from '../Models/UserDTO';
 export class UserService {
 
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   RetrieveUsers() {
-    return this.http.get<Array<UserDTO>>(/*this.baseUrl +*/ 'http://localhost:57629/api/users');
+    return this.http.get<Array<UserDTO>>(this.baseUrl + '/users');
   }
   RetrieveUser(id) {
   
-    return this.http.get<UserDTO>(/*this.baseUrl +*/ 'http://localhost:57629/api/users/'+ id);
+    return this.http.get<UserDTO>(this.baseUrl + '/users/'+ id);
   }
 
   UpdateUser(id, updateUser) {
-    return this.http.put('http://localhost:57629/api/users/updateUser/' + id, updateUser);
+    return this.http.put(this.baseUrl+'/users/updateUser/' + id, updateUser);
   }
 }

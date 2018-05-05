@@ -24,9 +24,9 @@ export class MemberListComponent implements OnInit {
     } else {
       this.loggedIn = false;
       setTimeout(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['home']);
 
-      }, 5000);
+      }, 1000);
     }
   }
 

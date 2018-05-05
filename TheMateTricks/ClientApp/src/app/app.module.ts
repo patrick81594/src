@@ -24,14 +24,14 @@ import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { MemberDetailsComponent } from './member/member-details/member-details.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-//import { MemberEditComponent } from './member/member-edit/member-edit.component';
+
 import { MomentModule } from 'ngx-moment';
 import { EditMemComponent } from './member/edit-mem/edit-mem.component';
+import { EditPhotoComponent } from './photo/edit-photo/edit-photo.component';
 
 
-//import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
-//import { FileUploadModule } from 'ng2-file-upload'; 
+
+import { FileUploadModule } from 'ng2-file-upload'; 
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -50,7 +50,8 @@ export function tokenGetter() {
     MemberDetailsComponent,
     TimeAgoPipe,
     EditMemComponent,
-    //MemberEditComponent
+    EditPhotoComponent
+    
    
   ],
   imports: [
@@ -71,10 +72,11 @@ export function tokenGetter() {
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot(),
         TabsModule.forRoot(),
-    CarouselModule.forRoot(),
-    TabsModule.forRoot()
+    
+    TabsModule.forRoot(),
+    FileUploadModule
   ],
-  providers: [AuthService, , UserService],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

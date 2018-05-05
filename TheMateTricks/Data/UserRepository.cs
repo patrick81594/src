@@ -10,7 +10,7 @@ namespace TheMateTricks.Data
 {
     public class UserRepository : IUserRepository
     {
-        private readonly DataContext _context;
+        public readonly DataContext _context;
 
         public UserRepository(DataContext Context)
         {

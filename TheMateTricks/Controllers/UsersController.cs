@@ -18,8 +18,8 @@ namespace TheMateTricks.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        private readonly IUserRepository _repo;
-        private readonly IMapper _mapper;
+        public readonly IUserRepository _repo;
+        public readonly IMapper _mapper;
         public UsersController(IUserRepository repo, IMapper mapper)
         {
             _repo = repo;

@@ -11,7 +11,7 @@ import { EditMemComponent } from './member/edit-mem/edit-mem.component';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'members', component: MemberListComponent },
   { path: 'friends', component: FriendsListComponent },
   { path: 'messages', component: MessagesListComponent },

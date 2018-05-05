@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { User } from '../models/user';
 import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
 import { componentRefresh } from '@angular/core/src/render3/instructions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -17,7 +18,7 @@ export class NavComponent implements OnInit {
   //user = localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')).userName: '';
   alertPlaying = false;
   alert = {};
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService,public Router:Router) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,11 @@ export class NavComponent implements OnInit {
   login() {
     console.log(this.model);
     this.authService.login(this.model).subscribe(data => console.log(data), error => console.log(error));
+    setTimeout(() => {
+      
+      this.Router.navigate(['home']);
+      
+    }, 1000);
     
   }
 
@@ -58,6 +64,12 @@ export class NavComponent implements OnInit {
   logOut() {
     this.authService.logOut();
     this.playAlert(-1);
+    setTimeout(() => {
+      
+      this.Router.navigate(['home']);
+      
+    }, 1000);
+   
   }
 
   checkLogin() {

@@ -9,7 +9,7 @@ namespace TheMateTricks.Data
 {
     public class SeedDB
     {
-        private readonly DataContext _context;
+        public readonly DataContext _context;
 
         public SeedDB(DataContext context)
         {
@@ -39,7 +39,7 @@ namespace TheMateTricks.Data
 
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {

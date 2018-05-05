@@ -11,21 +11,13 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MemberDetailsComponent implements OnInit {
 
-  constructor(private UserService: UserService, private activatedRoute: ActivatedRoute, private auth: AuthService, private router: Router) { }
-  member = {}
+  constructor(public UserService: UserService, public activatedRoute: ActivatedRoute, public auth: AuthService, public router: Router) { }
+  member;
   id = -1;
   loggedIn = false;
   ngOnInit() {
-    if (!this.auth.isExpired()) {
-      this.loggedIn = true;
-      this.id = this.activatedRoute.snapshot.params.id;
-      this.getUser(this.id);
-    } else {
-      this.loggedIn = false;
-      setTimeout(() => {
-        this.router.navigate(['/home']);
-      }, 5000);
-    }
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.getUser(this.id);
   }
   getUser(id) {
     this.UserService.RetrieveUser(id).subscribe(data => this.member = data);

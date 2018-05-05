@@ -10,18 +10,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private AuthService: AuthService, private UserService: UserService, private Router: Router) { }
+  constructor(public AuthService: AuthService, public UserService: UserService, public Router: Router) { }
   member: any = {};
-  id = -1;
+  id = JSON.parse(localStorage.getItem("user")).id;
+  
   loggedIn = false;
   ngOnInit() {
+    console.log(this.id);
     if (!this.AuthService.isExpired()) {
       this.loggedIn = true;
       this.getUser(this.id);
+      console.log(this.id);
     } else {
       this.loggedIn = false;
       setTimeout(() => {
-        this.Router.navigate(['/home']);
+        this.Router.navigate(['home']);
 
       }, 5000);
     }

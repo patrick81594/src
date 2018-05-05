@@ -11,8 +11,8 @@ namespace TheMateTricks.Data
 {
     public class AuthRepository : IAuthRepository
     {
-        private readonly DataContext _context;
-        private readonly IMapper _mapper;
+        public readonly DataContext _context;
+        public readonly IMapper _mapper;
 
         public AuthRepository(DataContext context,IMapper mapper)
         {
@@ -28,7 +28,7 @@ namespace TheMateTricks.Data
             return (user == null || !PasswordHashVerified(password, user.PasswordHash, user.PasswordSalt)) ? null : user;
         }
 
-        private bool PasswordHashVerified(string password, byte[] passwordHash, byte[] passwordSalt)
+        public bool PasswordHashVerified(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             // Hash password and compare with PasswordHash stored in database
 

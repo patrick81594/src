@@ -12,14 +12,15 @@ import { User } from '../models/user';
 export class AuthService {
 
     baseUrl = environment.apiUrl;
-    constructor(private http: HttpClient, private jwtHelperService: JwtHelperService) { }
+    constructor(public http: HttpClient, public jwtHelperService: JwtHelperService) { }
 
   login(user) {
-    return this.http.post<AuthUser>(/*.baseUrl +*/ 'http://localhost:57629/api/auth/login', user)
+    return this.http.post<AuthUser>(this.baseUrl + '/auth/login', user)
       .map((result: AuthUser) => {
         if (result) {
           localStorage.setItem('token', result.tokenString);
           localStorage.setItem("user", JSON.stringify(result));
+          window.location.reload();
           console.log(localStorage.getItem("token"));
           console.log(localStorage.getItem("user"));
         }
@@ -29,7 +30,7 @@ export class AuthService {
   }
   Register(model) {
     const contentHeader = new HttpHeaders({ 'Content-type': 'application/json' });
-    return this.http.post<AuthUser>(/*.baseUrl +*/ 'http://localhost:57629/api/auth/register', model, { headers: contentHeader });
+    return this.http.post<AuthUser>(this.baseUrl + '/auth/register', model, { headers: contentHeader });
     }
 
     isExpired() {

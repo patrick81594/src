@@ -26,7 +26,7 @@ export class EditMemComponent implements OnInit {
     } else {
       this.loggedIn = false;
       setTimeout(() => {
-        this.Router.navigate(['/home']);
+        this.Router.navigate(['home']);
 
       }, 5000);
     }

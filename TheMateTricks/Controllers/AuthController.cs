@@ -19,9 +19,9 @@ namespace TheMateTricks.Controllers
     [Route("api/Auth")]
     public class AuthController : Controller
     {
-        private readonly IAuthRepository _repo;
-        private readonly IConfiguration _config;
-        private readonly IMapper _mapper;
+        public readonly IAuthRepository _repo;
+        public readonly IConfiguration _config;
+        public readonly IMapper _mapper;
 
         public AuthController(IAuthRepository repo, IConfiguration config,IMapper mapper)
         {

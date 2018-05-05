@@ -28,6 +28,8 @@ namespace TheMateTricks.Data
             CreateMap<User, RegisterUserDTO>();
             CreateMap<Photo, PhotosDTO>();
             CreateMap<editUserDTO, User>();
+            CreateMap<Photo, PhotoReturnedDTO>();
+            CreateMap<AddPhotoDTO, Photo>();
         }
     }
 }
